@@ -11,15 +11,13 @@
     color: #1a1a1a;
     font-family: 'Segoe UI', system-ui, sans-serif;
     min-height: 100vh;
-    padding: 24px 16px;
   }
 
-  /* Team colors */
   :root {
-    --hou: #03202F;   /* Texans navy */
-    --hou-acc: #A71930; /* Texans red */
-    --ind: #002C5F;   /* Colts blue */
-    --ind-acc: #A2AAAD; /* Colts silver */
+    --hou: #03202F;
+    --hou-acc: #A71930;
+    --ind: #002C5F;
+    --ind-acc: #A2AAAD;
     --good: #4a8a61;
     --warn: #c17b4e;
     --bad: #c0392b;
@@ -28,52 +26,157 @@
     --surface: #f9f7f4;
   }
 
-  h1 { text-align: center; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 4px; letter-spacing: 0.03em; }
-  .subtitle { text-align: center; color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
-
-  /* Matchup header */
-  .matchup-header {
+  /* ── DARK HEADER ── */
+  .dark-header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    color: #fff;
+    padding: 32px 20px 24px;
+    text-align: center;
+  }
+  .dark-header .week-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 20px;
+  }
+  .matchup-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    max-width: 760px;
-    margin: 0 auto 20px auto;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    gap: 24px;
+    margin-bottom: 16px;
   }
-  .team-block { text-align: center; flex: 1; }
-  .team-abbr { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.02em; }
+  .team-block { text-align: center; min-width: 110px; }
+  .team-abbr { font-size: 3rem; font-weight: 900; letter-spacing: -0.02em; }
   .team-abbr.hou { color: var(--hou-acc); }
-  .team-abbr.ind { color: var(--ind); }
-  .team-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: 2px; }
-  .team-record { font-size: 1rem; font-weight: 700; margin-top: 4px; }
-  .at-sign { font-size: 1.5rem; color: var(--muted); font-weight: 300; }
-  .game-meta { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+  .team-abbr.ind { color: #6fa3ef; }
+  .team-name { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .team-record { font-size: 1.1rem; font-weight: 700; color: rgba(255,255,255,0.85); margin-top: 6px; }
+  .at-sign { font-size: 1.8rem; color: rgba(255,255,255,0.3); font-weight: 300; }
+  .game-meta-dark { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+  /* Battle summary chips */
+  .battle-chips {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .chip {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .chip.hou-win { background: rgba(167,25,48,0.3); color: #ff8fa0; border: 1px solid rgba(167,25,48,0.4); }
+  .chip.ind-win { background: rgba(111,163,239,0.2); color: #90bfff; border: 1px solid rgba(111,163,239,0.3); }
+  .chip.clash  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.15); }
+
+  /* ── DANGER BOX ── */
+  .danger-box {
+    max-width: 760px;
+    margin: 20px auto 0;
+    background: #3d0000;
+    border: 1px solid #8b0000;
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #ffb3b3;
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+  .danger-box .danger-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ff6b6b;
+    margin-bottom: 4px;
+  }
+
+  /* Main content wrapper */
+  .content { padding: 20px 16px; }
 
   /* Anomaly banner */
   .anomaly-banner {
     max-width: 760px;
-    margin: 0 auto 16px auto;
+    margin: 0 auto 14px auto;
     background: #fff8e1;
     border: 1px solid #ffe082;
     border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 0.82rem;
+    padding: 11px 15px;
+    font-size: 0.81rem;
     color: #7d5a00;
     line-height: 1.6;
   }
-  .anomaly-banner strong { color: #5d4000; }
+
+  /* THE SINGLE MOST IMPORTANT STAT box */
+  .most-important {
+    max-width: 760px;
+    margin: 0 auto 16px;
+    background: #fff;
+    border: 2px solid #c17b4e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(193,123,78,0.15);
+  }
+  .most-important-header {
+    background: #c17b4e;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .pressure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  @media(max-width:520px){ .pressure-grid { grid-template-columns: 1fr; } }
+  .pressure-side { padding: 16px; }
+  .pressure-side:first-child { border-right: 1px solid var(--border); }
+  .pressure-team-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .pressure-team-label.hou { color: var(--hou-acc); }
+  .pressure-team-label.ind { color: var(--ind); }
+  .pressure-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f5f1ec;
+    font-size: 0.83rem;
+  }
+  .pressure-row:last-child { border-bottom: none; }
+  .pr-label { color: var(--muted); font-size: 0.78rem; }
+  .pr-val { font-weight: 800; font-size: 1.0rem; }
+  .pr-val.good { color: var(--good); }
+  .pr-val.bad  { color: var(--bad); }
+  .pr-val.warn { color: var(--warn); }
+  .pressure-note {
+    padding: 10px 16px;
+    background: #fdf9f5;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.5;
+  }
 
   /* Tabs */
   .tabs {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin-bottom: 24px;
+    margin: 20px 0 20px;
     flex-wrap: wrap;
   }
   .tab {
@@ -103,7 +206,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
   .card-title {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--muted);
@@ -112,7 +215,7 @@
     border-bottom: 1px solid var(--border);
   }
 
-  /* Stat row */
+  /* Stat summary row */
   .stats-row {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -129,7 +232,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
   .stat-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
-  .stat-value { font-size: 1.4rem; font-weight: 800; color: #1a1a1a; }
+  .stat-value { font-size: 1.3rem; font-weight: 800; color: #1a1a1a; }
   .stat-value.good { color: var(--good); }
   .stat-value.bad  { color: var(--bad); }
   .stat-value.warn { color: var(--warn); }
@@ -146,10 +249,20 @@
   }
   .data-table tbody tr { border-bottom: 1px solid #f0ebe4; }
   .data-table tbody tr:last-child { border-bottom: none; }
-  .data-table tbody tr:hover { background: #fdfbf9; }
   .data-table td { padding: 8px 12px; vertical-align: middle; }
   .data-table td.good { color: var(--good); font-weight: 700; }
   .data-table td.bad  { color: var(--bad);  font-weight: 700; }
+  .data-table td.warn { color: var(--warn); font-weight: 700; }
+
+  /* Weekly trend table */
+  .week-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  .week-table th { text-align: center; padding: 5px 8px; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .week-table td { padding: 5px 8px; border-bottom: 1px solid #f5f1ec; text-align: center; }
+  .week-table tr:last-child td { border-bottom: none; }
+  .week-table td:first-child { text-align: left; font-weight: 600; }
+  .wl-w { color: var(--good); font-weight: 700; }
+  .wl-l { color: var(--bad); font-weight: 700; }
+  .anomaly-row td { background: #fff8e1 !important; }
 
   /* Battle cards */
   .battle {
@@ -206,6 +319,33 @@
   .loc-table tr.best td { background: #f0fff4; }
   .loc-table tr:last-child td { border-bottom: none; }
 
+  /* Rusher box */
+  .rusher-box {
+    margin: 10px 16px 14px;
+    background: #fdf9f5;
+    border-left: 3px solid var(--warn);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: #333;
+  }
+  .rusher-box .rusher-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--warn);
+    margin-bottom: 5px;
+  }
+
+  /* Sack log table */
+  .sack-log { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin-top: 6px; }
+  .sack-log th { text-align: center; padding: 4px 6px; color: var(--muted); font-size: 0.65rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  .sack-log td { padding: 4px 6px; border-bottom: 1px solid #f5f1ec; text-align: center; }
+  .sack-log td:first-child { text-align: left; }
+  .sack-log tr:last-child td { border-bottom: none; }
+
   .verify-box {
     margin: 0 16px 14px;
     background: #fff8e1;
@@ -226,7 +366,7 @@
   .win  { color: var(--good); }
   .loss { color: var(--bad); }
 
-  /* Overall verdict */
+  /* Verdict */
   .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media(max-width:500px){ .verdict-grid { grid-template-columns: 1fr; } }
   .verdict-col { background: var(--surface); border-radius: 8px; padding: 12px; }
@@ -235,520 +375,633 @@
   .verdict-col-title.ind { color: var(--ind); }
   .verdict-col ul { font-size: 0.82rem; padding-left: 14px; line-height: 1.9; color: #333; }
   .bottom-line {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-    font-size: 0.83rem;
-    color: #444;
-    line-height: 1.6;
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border);
+    font-size: 0.83rem; color: #444; line-height: 1.6;
   }
 
-  /* Edge tally */
   .tally-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
   .tally-table th { text-align: left; padding: 6px 10px; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; border-bottom: 1px solid var(--border); }
   .tally-table td { padding: 8px 10px; border-bottom: 1px solid #f5f1ec; }
   .tally-table tr:last-child td { border-bottom: none; }
-  .tally-table td.hou-win { color: var(--hou-acc); font-weight: 700; }
-  .tally-table td.ind-win { color: var(--ind); font-weight: 700; }
-  .tally-table td.even-cell { color: var(--muted); }
+  .tally-hou { color: var(--hou-acc); font-weight: 700; }
+  .tally-ind { color: var(--ind); font-weight: 700; }
+  .tally-even { color: var(--muted); }
 
-  .footnote { max-width: 760px; margin: 20px auto 0; font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.6; }
+  .footnote { max-width: 760px; margin: 24px auto 0; font-size: 0.74rem; color: var(--muted); text-align: center; line-height: 1.7; padding-bottom: 32px; }
 </style>
 </head>
 <body>
 
-<h1>🏈 NFL Game Preview</h1>
-<p class="subtitle">Week 11 · 2026 Season · PBP data through Week 10</p>
+<!-- ══════════ DARK HEADER ══════════ -->
+<div class="dark-header">
+  <div class="week-label">Week 11 · 2026 NFL Season · Thu Nov 19</div>
+  <div class="matchup-row">
+    <div class="team-block">
+      <div class="team-abbr hou">HOU</div>
+      <div class="team-name">Houston Texans</div>
+      <div class="team-record">3–6</div>
+    </div>
+    <div>
+      <div class="at-sign">@</div>
+      <div style="font-size:0.68rem;color:rgba(255,255,255,0.3);margin-top:4px;">Away</div>
+    </div>
+    <div class="team-block">
+      <div class="team-abbr ind">IND</div>
+      <div class="team-name">Indianapolis Colts</div>
+      <div class="team-record">3–7</div>
+    </div>
+  </div>
+  <div class="game-meta-dark">Lucas Oil Stadium · Indianapolis, IN · 7:15 PM ET</div>
 
-<!-- Matchup header -->
-<div class="matchup-header">
-  <div class="team-block">
-    <div class="team-abbr hou">HOU</div>
-    <div class="team-name">Houston Texans</div>
-    <div class="team-record">3–6</div>
+  <!-- Battle result chips -->
+  <div class="battle-chips">
+    <span class="chip clash">HOU QB vs IND D — CLASH</span>
+    <span class="chip hou-win">HOU Run — HOU EDGE</span>
+    <span class="chip hou-win">HOU WRs — HOU EDGE</span>
+    <span class="chip hou-win">IND QB vs HOU D — HOU DANGER</span>
+    <span class="chip ind-win">IND Run — IND EDGE</span>
   </div>
-  <div>
-    <div class="at-sign">@</div>
-    <div class="game-meta">Away</div>
-  </div>
-  <div class="team-block">
-    <div class="team-abbr ind">IND</div>
-    <div class="team-name">Indianapolis Colts</div>
-    <div class="team-record">3–7</div>
-  </div>
-</div>
-<p class="game-meta" style="margin-bottom:16px;">Thu Nov 19, 2026 · Lucas Oil Stadium, Indianapolis · IND home</p>
 
-<!-- Anomaly banners -->
-<div class="anomaly-banner">
-  ⚠️ <strong>HOU offensive shift detected at Week 4</strong> — scoring jumped from 18.0 to 29.8 pts/g (Δ+11.8). Verify: QB change? Coordinator adjustment? Use post-Wk 4 data for this matchup.<br>
-  ⚠️ <strong>IND offensive drop detected at Week 6</strong> — scoring fell from 24.8 to 16.8 pts/g (Δ−8.0). Verify: QB change? Key injury? Use post-Wk 6 data for this matchup.
-</div>
-
-<!-- Key stats -->
-<div class="stats-row">
-  <div class="stat-card">
-    <div class="stat-label">HOU Proj Score</div>
-    <div class="stat-value warn">26.5</div>
-    <div class="stat-sub">season avg method</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">IND Proj Score</div>
-    <div class="stat-value warn">22.6</div>
-    <div class="stat-sub">season avg method</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">H2H This Season</div>
-    <div class="stat-value good">IND 19–17</div>
-    <div class="stat-sub">Week 3 · IND won</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-label">IND Home Avg</div>
-    <div class="stat-value">21.8</div>
-    <div class="stat-sub">pts/g at home</div>
+  <!-- Danger callout in header -->
+  <div class="danger-box">
+    <div class="danger-label">🚨 Biggest Mismatch of This Game</div>
+    IND QB Daniel Jones (−0.19 EPA/pass, 7.4% sacks taken) faces HOU's elite pass rush — Will Anderson Jr. + Danielle Hunter, the NFL's most feared duo. HOU generates 9.4% sacks (33 on the season). Jones under pressure is catastrophic. Watch for early turnovers.
   </div>
 </div>
 
-<!-- Tabs -->
-<div class="tabs">
-  <button class="tab active" onclick="showPanel('overview',this)">Overview</button>
-  <button class="tab" onclick="showPanel('hou-offense',this)">HOU Offense</button>
-  <button class="tab" onclick="showPanel('ind-offense',this)">IND Offense</button>
-  <button class="tab" onclick="showPanel('verdict',this)">Verdict</button>
-</div>
+<!-- ══════════ MAIN CONTENT ══════════ -->
+<div class="content">
 
-<!-- ===== OVERVIEW PANEL ===== -->
-<div id="overview" class="panel active">
-
-  <div class="card">
-    <div class="card-title">Team Overview — Season Stats</div>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead><tr><th>Team</th><th>Record</th><th>PTS/G Off</th><th>PTS/G Def</th><th>Diff</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--hou-acc);">HOU</strong></td><td>3–6</td><td>25.9</td><td>24.3</td><td class="good">+1.6</td></tr>
-          <tr><td><strong style="color:var(--ind);">IND</strong></td><td>3–7</td><td>20.8</td><td>27.1</td><td class="bad">−6.3</td></tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- Anomaly banners -->
+  <div class="anomaly-banner">
+    ⚠️ <strong>HOU offensive shift at Week 4</strong> — scoring jumped from 18.0 → 29.8 pts/g (Δ+11.8). Likely QB/scheme change. Post-Wk4 data weighted here.<br>
+    ⚠️ <strong>IND offensive drop at Week 6</strong> — scoring fell from 24.8 → 16.8 pts/g (Δ−8.0). Key personnel change or injury. Post-Wk6 data weighted here.
   </div>
 
-  <div class="card">
-    <div class="card-title">Recent Form — Last 3 Games</div>
-    <p style="font-size:0.8rem;font-weight:700;color:var(--hou-acc);margin-bottom:8px;">HOU · 1–2 recent</p>
-    <div class="form-row"><span class="form-week">Wk 7</span><span class="form-opp">vs NYG</span><span class="form-score loss">L 21–27</span></div>
-    <div class="form-row"><span class="form-week">Wk 9</span><span class="form-opp">@ LAC</span><span class="form-score win">W 44–22</span></div>
-    <div class="form-row"><span class="form-week">Wk 10</span><span class="form-opp">@ CLE</span><span class="form-score loss">L 24–27</span></div>
-    <p style="font-size:0.8rem;font-weight:700;color:var(--ind);margin:14px 0 8px;">IND · 1–2 recent</p>
-    <div class="form-row"><span class="form-week">Wk 8</span><span class="form-opp">@ JAX</span><span class="form-score loss">L 7–42</span></div>
-    <div class="form-row"><span class="form-week">Wk 9</span><span class="form-opp">vs DAL</span><span class="form-score loss">L 23–27</span></div>
-    <div class="form-row"><span class="form-week">Wk 10</span><span class="form-opp">vs MIA</span><span class="form-score win">W 24–22</span></div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Home / Away Splits</div>
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead><tr><th>Team</th><th>Home pts/g</th><th>Away pts/g</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--hou-acc);">HOU</strong></td><td>22.0</td><td class="good">29.0</td></tr>
-          <tr><td><strong style="color:var(--ind);">IND</strong></td><td>21.8</td><td>19.8</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="stat-sub" style="margin-top:8px;">Note: HOU scores more on the road (29.0 vs 22.0). Playing at IND may suppress HOU slightly.</p>
-  </div>
-
-</div>
-
-<!-- ===== HOU OFFENSE PANEL ===== -->
-<div id="hou-offense" class="panel">
-
-  <p style="max-width:760px;margin:0 auto 14px;font-size:0.82rem;color:var(--muted);">HOU Offense vs IND Defense — five positional battles</p>
-
-  <!-- Battle 1 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--hou-acc);">1</div>
-      <div class="battle-title">HOU QB vs IND Defensive Line</div>
-      <div class="edge-pill even">⚡ CLASH</div>
-    </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label hou">HOU Passing — 337 attempts</div>
-        <div class="stat-line"><span class="sk">Completion %</span><span class="sv warn">59.9%</span></div>
-        <div class="stat-line"><span class="sk">Avg air yards</span><span class="sv">9.7 yds</span></div>
-        <div class="stat-line"><span class="sk">CPOE</span><span class="sv good">+0.7%</span></div>
-        <div class="stat-line"><span class="sk">EPA / pass</span><span class="sv good">+0.13</span></div>
-        <div class="stat-line"><span class="sk">Sack rate taken</span><span class="sv warn">5.0% (17 sacks)</span></div>
-        <div class="stat-line"><span class="sk">Hit rate taken</span><span class="sv warn">12.2% (41 hits)</span></div>
+  <!-- ══ THE SINGLE MOST IMPORTANT STAT ══ -->
+  <div class="most-important">
+    <div class="most-important-header">⭐ The Single Most Important Stat — QB Under Pressure</div>
+    <div class="pressure-grid">
+      <div class="pressure-side">
+        <div class="pressure-team-label hou">HOU QB — C.J. Stroud</div>
+        <div class="pressure-row">
+          <span class="pr-label">Overall EPA/pass</span>
+          <span class="pr-val good">+0.13</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Sack rate taken</span>
+          <span class="pr-val warn">5.0%</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">QB hit rate</span>
+          <span class="pr-val warn">12.2%</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Avg air yards</span>
+          <span class="pr-val">9.7 yds</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Completion %</span>
+          <span class="pr-val">59.9%</span>
+        </div>
       </div>
-      <div class="side">
-        <div class="side-label ind">IND Pass Rush — 319 opp att</div>
-        <div class="stat-line"><span class="sk">Sacks generated</span><span class="sv bad">22 (6.9%)</span></div>
-        <div class="stat-line"><span class="sk">QB hits generated</span><span class="sv bad">49 (15.4%)</span></div>
-        <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;line-height:1.5;">IND generates a 6.9% sack rate — above HOU's 5.0% taken. Slight pressure edge to IND D-line, but HOU QB's +0.13 EPA keeps this a clash.</p>
-      </div>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'HOU QB pressure rate 2026' — time-to-throw, pocket mobility</li>
-        <li>'IND pass rush ranking 2026' — PFF D-line grade, blitz rate</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Battle 2 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--hou-acc);">2</div>
-      <div class="battle-title">HOU Run Game vs IND Linebackers</div>
-      <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
-    </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label hou">HOU Rushing — 215 carries</div>
-        <div class="stat-line"><span class="sk">Yards per carry</span><span class="sv warn">3.67</span></div>
-        <div class="stat-line"><span class="sk">EPA / rush</span><span class="sv warn">−0.08</span></div>
-        <div class="stat-line"><span class="sk">1st down rate</span><span class="sv">21.4%</span></div>
-        <div class="stat-line"><span class="sk">TFL rate taken</span><span class="sv warn">7.0% (15 TFLs)</span></div>
-        <div class="stat-line"><span class="sk">Best gap</span><span class="sv good">left tackle (5.0 ypc)</span></div>
-      </div>
-      <div class="side">
-        <div class="side-label ind">IND Run Defense — 267 carries faced</div>
-        <div class="stat-line"><span class="sk">YPC allowed</span><span class="sv bad">4.94</span></div>
-        <div class="stat-line"><span class="sk">EPA allowed / rush</span><span class="sv bad">+0.04</span></div>
-        <div class="stat-line"><span class="sk">TFL rate generated</span><span class="sv bad">3.7% (10 TFLs)</span></div>
-        <p style="font-size:0.78rem;background:#f0fff4;border-radius:6px;padding:8px;margin-top:8px;color:var(--good);">IND allows 4.94 ypc — well above HOU's 3.67 average. HOU should run the ball effectively even if their average looks modest.</p>
-      </div>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'HOU rushing offense 2026' — OL run-block grade, RB1 health</li>
-        <li>'IND run defense 2026' — LB tackle rate, box count tendency</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Battle 3 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--hou-acc);">3</div>
-      <div class="battle-title">HOU Receivers vs IND Cornerbacks</div>
-      <div class="edge-pill hou">◀ HOU EDGE</div>
-    </div>
-    <div class="side" style="padding:14px 16px 0;">
-      <div class="side-label hou">HOU Targets by Location</div>
-      <table class="loc-table">
-        <tr><th>Zone</th><th>Targets</th><th>Comp%</th><th>Air Yds</th><th>YAC</th><th>EPA/tgt</th></tr>
-        <tr><td>Left</td><td>89</td><td>58.4%</td><td>8.7</td><td>3.6</td><td style="color:var(--bad);">−0.06</td></tr>
-        <tr class="best"><td>Middle ⭐</td><td>83</td><td style="color:var(--good);">67.5%</td><td>10.0</td><td>5.8</td><td style="color:var(--good);">+0.37</td></tr>
-        <tr class="best"><td>Right ⭐</td><td>147</td><td style="color:var(--good);">63.9%</td><td>10.1</td><td>4.6</td><td style="color:var(--good);">+0.29</td></tr>
-      </table>
-      <div class="stat-line" style="margin-top:10px;"><span class="sk">Deep ball (HOU, 15+ yds)</span><span class="sv">78 att · 38.5% comp%</span></div>
-      <div class="stat-line"><span class="sk">Deep ball allowed (IND def)</span><span class="sv bad">67 att · 46.3% comp%</span></div>
-      <p style="font-size:0.78rem;color:var(--muted);padding:8px 0 12px;">HOU's best attack: middle (+0.37 EPA) and right (+0.29 EPA). IND allows 46.3% on deep balls — higher than HOU's 38.5% rate. Deep shots are worth attempting.</p>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'HOU WR depth chart 2026' — WR1/WR2 health, slot vs outside split</li>
-        <li>'IND cornerback rankings 2026' — CB1 coverage grade, shadow CB?</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Battle 4 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--hou-acc);">4</div>
-      <div class="battle-title">HOU TE vs IND Safety / LB (middle proxy)</div>
-      <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
-    </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label hou">HOU Middle — 83 targets</div>
-        <div class="stat-line"><span class="sk">Completion %</span><span class="sv good">67.5%</span></div>
-        <div class="stat-line"><span class="sk">Avg YAC</span><span class="sv good">5.8 yds</span></div>
-        <div class="stat-line"><span class="sk">EPA / target</span><span class="sv good">+0.37</span></div>
-      </div>
-      <div class="side">
-        <div class="side-label ind">IND Middle Defense — 63 opp targets</div>
-        <div class="stat-line"><span class="sk">Comp% allowed</span><span class="sv bad">58.7%</span></div>
-        <div class="stat-line"><span class="sk">YAC allowed</span><span class="sv warn">5.5 yds</span></div>
-        <div class="stat-line"><span class="sk">EPA / target allowed</span><span class="sv bad">+0.11</span></div>
-        <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">HOU completes 67.5% in the middle vs IND allowing 58.7%. Big gap. HOU's TE/slot attack over the middle is a primary weapon tonight.</p>
-      </div>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'HOU tight end targets 2026' — TE1 usage rate, red zone role</li>
-        <li>'IND safety coverage 2026' — single-high or 2-deep?</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Battle 5 -->
-  <div class="battle" style="margin-bottom:0;">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--hou-acc);">5</div>
-      <div class="battle-title">Special Teams</div>
-      <div class="edge-pill even">── EVEN</div>
-    </div>
-    <div class="side" style="padding:14px 16px;">
-      <table class="loc-table">
-        <tr><th>Metric</th><th style="color:var(--hou-acc);">HOU</th><th style="color:var(--ind);">IND</th><th>Edge</th></tr>
-        <tr><td>FG Make%</td><td style="color:var(--good);font-weight:700;">95.0%</td><td>92.0%</td><td style="color:var(--hou-acc);">HOU ◀</td></tr>
-        <tr><td>FG Att / Made</td><td>20/19</td><td>25/23</td><td style="color:var(--muted);">Even</td></tr>
-        <tr><td>Avg FG dist</td><td>44.4 yds</td><td style="color:var(--good);font-weight:700;">45.8 yds</td><td style="color:var(--ind);">IND ▶</td></tr>
-        <tr><td>Punt inside-20%</td><td>28.2%</td><td style="color:var(--good);font-weight:700;">37.8%</td><td style="color:var(--ind);">IND ▶</td></tr>
-      </table>
-      <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">Both kickers are elite (95% vs 92%). IND has the better punter. Close game special teams could matter — both units are competent.</p>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'HOU kicker 2026 accuracy' — long-range %?</li>
-        <li>'IND punt returner 2026' — big-play threat?</li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
-<!-- ===== IND OFFENSE PANEL ===== -->
-<div id="ind-offense" class="panel">
-
-  <p style="max-width:760px;margin:0 auto 14px;font-size:0.82rem;color:var(--muted);">IND Offense vs HOU Defense — five positional battles</p>
-
-  <!-- Battle 1 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--ind);">1</div>
-      <div class="battle-title">IND QB vs HOU Defensive Line</div>
-      <div class="edge-pill hou">◀◀ HOU D-LINE DANGER</div>
-    </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label ind">IND Passing — 351 attempts</div>
-        <div class="stat-line"><span class="sk">Completion %</span><span class="sv bad">55.6%</span></div>
-        <div class="stat-line"><span class="sk">Avg air yards</span><span class="sv">7.4 yds</span></div>
-        <div class="stat-line"><span class="sk">CPOE</span><span class="sv bad">−5.1%</span></div>
-        <div class="stat-line"><span class="sk">EPA / pass</span><span class="sv bad">−0.19</span></div>
-        <div class="stat-line"><span class="sk">Sack rate taken</span><span class="sv bad">7.4% (26 sacks)</span></div>
-        <div class="stat-line"><span class="sk">Hit rate taken</span><span class="sv bad">17.9% (63 hits)</span></div>
-      </div>
-      <div class="side">
-        <div class="side-label hou">HOU Pass Rush — 350 opp att</div>
-        <div class="stat-line"><span class="sk">Sacks generated</span><span class="sv bad">33 (9.4%)</span></div>
-        <div class="stat-line"><span class="sk">QB hits generated</span><span class="sv bad">58 (16.6%)</span></div>
-        <div style="font-size:0.78rem;background:#fff0f0;border-radius:6px;padding:8px;margin-top:8px;color:var(--bad);">
-          IND QB has −0.19 EPA/pass and already takes 7.4% sacks. HOU generates 9.4%. This is the game's biggest mismatch — IND's QB will be under constant pressure.
+      <div class="pressure-side">
+        <div class="pressure-team-label ind">IND QB — Daniel Jones</div>
+        <div class="pressure-row">
+          <span class="pr-label">Overall EPA/pass</span>
+          <span class="pr-val bad">−0.19</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Sack rate taken</span>
+          <span class="pr-val bad">7.4%</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">QB hit rate</span>
+          <span class="pr-val bad">17.9%</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Avg air yards</span>
+          <span class="pr-val warn">7.4 yds</span>
+        </div>
+        <div class="pressure-row">
+          <span class="pr-label">Completion %</span>
+          <span class="pr-val bad">55.6%</span>
         </div>
       </div>
     </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'IND QB pressure rate 2026' — who is starting? Injury status?</li>
-        <li>'HOU pass rush ranking 2026' — PFF D-line grade, blitz rate</li>
-      </ul>
+    <div class="pressure-note">
+      Jones already takes sacks at 7.4% — now faces HOU's 9.4% sack-generating pass rush (Will Anderson Jr. + Danielle Hunter). Every metric points the same direction: HOU defensive line wins this battle decisively. IND's only path is an early run game to keep HOU honest.
     </div>
   </div>
 
-  <!-- Battle 2 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--ind);">2</div>
-      <div class="battle-title">IND Run Game vs HOU Linebackers</div>
-      <div class="edge-pill ind">IND EDGE ▶</div>
+  <!-- Key stats row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-label">HOU Proj</div>
+      <div class="stat-value warn">26.5</div>
+      <div class="stat-sub">season avg method</div>
     </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label ind">IND Rushing — 277 carries</div>
-        <div class="stat-line"><span class="sk">Yards per carry</span><span class="sv good">4.39</span></div>
-        <div class="stat-line"><span class="sk">EPA / rush</span><span class="sv good">+0.01</span></div>
-        <div class="stat-line"><span class="sk">1st down rate</span><span class="sv good">28.9%</span></div>
-        <div class="stat-line"><span class="sk">TFL rate taken</span><span class="sv warn">9.4% (26 TFLs)</span></div>
-        <div class="stat-line"><span class="sk">Best gap</span><span class="sv good">left tackle (6.2 ypc)</span></div>
-      </div>
-      <div class="side">
-        <div class="side-label hou">HOU Run Defense — 228 carries faced</div>
-        <div class="stat-line"><span class="sk">YPC allowed</span><span class="sv warn">4.07</span></div>
-        <div class="stat-line"><span class="sk">EPA allowed / rush</span><span class="sv good">−0.03</span></div>
-        <div class="stat-line"><span class="sk">TFL rate generated</span><span class="sv good">7.0% (16 TFLs)</span></div>
-        <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">IND's 4.39 ypc beats HOU's 4.07 allowed — slight IND edge. With IND's QB struggling, the run game becomes their lifeline. If IND can run it, they stay in this game.</p>
-      </div>
+    <div class="stat-card">
+      <div class="stat-label">IND Proj</div>
+      <div class="stat-value warn">22.6</div>
+      <div class="stat-sub">season avg method</div>
     </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'IND rushing offense 2026' — OL run-block grade, RB1 health</li>
-        <li>'HOU run defense 2026' — LB tackle rate, box count tendency</li>
-      </ul>
+    <div class="stat-card">
+      <div class="stat-label">H2H 2026</div>
+      <div class="stat-value bad" style="font-size:1.1rem;">IND 19–17</div>
+      <div class="stat-sub">Week 3 · IND won</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">HOU Road Avg</div>
+      <div class="stat-value good">29.0</div>
+      <div class="stat-sub">pts/g away (vs 22 home)</div>
     </div>
   </div>
 
-  <!-- Battle 3 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--ind);">3</div>
-      <div class="battle-title">IND Receivers vs HOU Cornerbacks</div>
-      <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
-    </div>
-    <div class="side" style="padding:14px 16px 0;">
-      <div class="side-label ind">IND Targets by Location</div>
-      <table class="loc-table">
-        <tr><th>Zone</th><th>Targets</th><th>Comp%</th><th>Air Yds</th><th>YAC</th><th>EPA/tgt</th></tr>
-        <tr><td>Left</td><td>136</td><td>64.0%</td><td>6.4</td><td>5.2</td><td style="color:var(--bad);">−0.12</td></tr>
-        <tr><td>Middle</td><td>65</td><td>58.5%</td><td>9.5</td><td>3.5</td><td style="color:var(--warn);">+0.05</td></tr>
-        <tr><td>Right</td><td>124</td><td>56.5%</td><td>7.3</td><td>5.2</td><td style="color:var(--bad);">−0.10</td></tr>
-      </table>
-      <div class="stat-line" style="margin-top:10px;"><span class="sk">Deep ball (IND, 15+ yds)</span><span class="sv">60 att · 30.0% comp%</span></div>
-      <div class="stat-line"><span class="sk">Deep ball allowed (HOU def)</span><span class="sv warn">79 att · 46.8% comp%</span></div>
-      <p style="font-size:0.78rem;color:var(--muted);padding:8px 0 12px;">IND is negative EPA in every zone. HOU allows 46.8% on deep balls — a slight opening — but IND's −0.19 EPA/pass QB makes this hard to exploit. HOU wins this battle convincingly.</p>
-    </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'IND WR depth chart 2026' — WR1/WR2 health, slot vs outside</li>
-        <li>'HOU cornerback rankings 2026' — CB1 coverage grade, shadow CB?</li>
-      </ul>
-    </div>
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="showPanel('overview',this)">Overview</button>
+    <button class="tab" onclick="showPanel('hou-offense',this)">HOU Offense</button>
+    <button class="tab" onclick="showPanel('ind-offense',this)">IND Offense</button>
+    <button class="tab" onclick="showPanel('verdict',this)">Verdict</button>
   </div>
 
-  <!-- Battle 4 -->
-  <div class="battle">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--ind);">4</div>
-      <div class="battle-title">IND TE vs HOU Safety / LB (middle proxy)</div>
-      <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
-    </div>
-    <div class="battle-body">
-      <div class="side">
-        <div class="side-label ind">IND Middle — 65 targets</div>
-        <div class="stat-line"><span class="sk">Completion %</span><span class="sv warn">58.5%</span></div>
-        <div class="stat-line"><span class="sk">Avg YAC</span><span class="sv warn">3.5 yds</span></div>
-        <div class="stat-line"><span class="sk">EPA / target</span><span class="sv warn">+0.05</span></div>
-      </div>
-      <div class="side">
-        <div class="side-label hou">HOU Middle Defense — 74 opp targets</div>
-        <div class="stat-line"><span class="sk">Comp% allowed</span><span class="sv bad">62.2%</span></div>
-        <div class="stat-line"><span class="sk">YAC allowed</span><span class="sv bad">4.5 yds</span></div>
-        <div class="stat-line"><span class="sk">EPA / target allowed</span><span class="sv bad">+0.31</span></div>
-        <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">HOU allows +0.31 EPA in the middle — a real weakness. IND only generates +0.05, so IND's TE isn't dangerous enough to exploit it. Edge still to HOU overall.</p>
+  <!-- ═════════════ OVERVIEW ═════════════ -->
+  <div id="overview" class="panel active">
+
+    <div class="card">
+      <div class="card-title">Season Snapshot</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Team</th><th>Record</th><th>PTS/G Off</th><th>PTS/G Def</th><th>Diff</th><th>QB</th><th>EPA/pass</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:var(--hou-acc);">HOU</strong></td>
+              <td>3–6</td><td>25.9</td><td>24.3</td>
+              <td class="good">+1.6</td>
+              <td>C.J. Stroud</td>
+              <td class="good">+0.13</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--ind);">IND</strong></td>
+              <td>3–7</td><td>20.8</td><td>27.1</td>
+              <td class="bad">−6.3</td>
+              <td>D. Jones</td>
+              <td class="bad">−0.19</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="verify-box">
-      <strong>⚑ Verify</strong>
-      <ul>
-        <li>'IND tight end targets 2026' — TE1 usage rate, red zone role</li>
-        <li>'HOU safety coverage 2026' — single-high or 2-deep?</li>
-      </ul>
+
+    <!-- Week-by-week scoring trends -->
+    <div class="card">
+      <div class="card-title">HOU Week-by-Week Scoring (⚠️ shift at Wk4)</div>
+      <div class="table-wrap">
+        <table class="week-table">
+          <thead><tr><th>Wk</th><th>Opp</th><th>W/L</th><th>HOU Pts</th><th>Opp Pts</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Wk 1</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:var(--muted);font-size:0.75rem;">pre-shift avg ~18 pts/g</td></tr>
+            <tr><td>Wk 2</td><td>—</td><td>—</td><td>—</td><td>—</td><td></td></tr>
+            <tr><td>Wk 3</td><td>@ IND</td><td class="wl-l">L</td><td>17</td><td>19</td><td style="color:var(--muted);font-size:0.75rem;">H2H</td></tr>
+            <tr class="anomaly-row"><td>Wk 4</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:#7d5a00;font-size:0.75rem;">⚠️ Shift — scoring jumps</td></tr>
+            <tr><td>Wk 7</td><td>vs NYG</td><td class="wl-l">L</td><td>21</td><td>27</td><td></td></tr>
+            <tr><td>Wk 9</td><td>@ LAC</td><td class="wl-w">W</td><td>44</td><td>22</td><td style="color:var(--good);font-size:0.75rem;">Blowout win</td></tr>
+            <tr><td>Wk 10</td><td>@ CLE</td><td class="wl-l">L</td><td>24</td><td>27</td><td style="color:var(--muted);font-size:0.75rem;">Close road loss</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.76rem;color:var(--muted);margin-top:8px;">Post-Wk4 HOU avg: 29.8 pts/g offense · 1–2 recent form but road EPA strong</p>
     </div>
-  </div>
 
-  <!-- Battle 5 (special teams — same as above) -->
-  <div class="battle" style="margin-bottom:0;">
-    <div class="battle-header">
-      <div class="battle-num" style="background:var(--ind);">5</div>
-      <div class="battle-title">Special Teams</div>
-      <div class="edge-pill even">── EVEN</div>
+    <div class="card">
+      <div class="card-title">IND Week-by-Week Scoring (⚠️ drop at Wk6)</div>
+      <div class="table-wrap">
+        <table class="week-table">
+          <thead><tr><th>Wk</th><th>Opp</th><th>W/L</th><th>IND Pts</th><th>Opp Pts</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Wk 1</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:var(--muted);font-size:0.75rem;">pre-drop avg ~24.8 pts/g</td></tr>
+            <tr><td>Wk 3</td><td>vs HOU</td><td class="wl-w">W</td><td>19</td><td>17</td><td style="color:var(--good);font-size:0.75rem;">H2H win</td></tr>
+            <tr class="anomaly-row"><td>Wk 6</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:#7d5a00;font-size:0.75rem;">⚠️ Drop — scoring collapses</td></tr>
+            <tr><td>Wk 8</td><td>@ JAX</td><td class="wl-l">L</td><td>7</td><td>42</td><td style="color:var(--bad);font-size:0.75rem;">Blowout loss</td></tr>
+            <tr><td>Wk 9</td><td>vs DAL</td><td class="wl-l">L</td><td>23</td><td>27</td><td></td></tr>
+            <tr><td>Wk 10</td><td>vs MIA</td><td class="wl-w">W</td><td>24</td><td>22</td><td style="color:var(--good);font-size:0.75rem;">Home win</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.76rem;color:var(--muted);margin-top:8px;">Post-Wk6 IND avg: 16.8 pts/g offense · Daniel Jones returning from ACL (came back Week 7)</p>
     </div>
-    <div class="side" style="padding:14px 16px;">
-      <table class="loc-table">
-        <tr><th>Metric</th><th style="color:var(--ind);">IND</th><th style="color:var(--hou-acc);">HOU</th><th>Edge</th></tr>
-        <tr><td>FG Make%</td><td>92.0%</td><td style="color:var(--good);font-weight:700;">95.0%</td><td style="color:var(--hou-acc);">HOU ◀</td></tr>
-        <tr><td>Avg FG dist</td><td style="color:var(--good);font-weight:700;">45.8 yds</td><td>44.4 yds</td><td style="color:var(--ind);">IND ▶</td></tr>
-        <tr><td>Punt inside-20%</td><td style="color:var(--good);font-weight:700;">37.8%</td><td>28.2%</td><td style="color:var(--ind);">IND ▶</td></tr>
-      </table>
+
+    <div class="card">
+      <div class="card-title">Home / Away Splits</div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Team</th><th>Home pts/g</th><th>Away pts/g</th><th>Split</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--hou-acc);">HOU</strong></td><td>22.0</td><td class="good">29.0</td><td class="good">HOU scores MORE away (+7.0)</td></tr>
+            <tr><td><strong style="color:var(--ind);">IND</strong></td><td>21.8</td><td>19.8</td><td class="warn">IND slight home edge (+2.0)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">Counterintuitively, HOU is better on the road this season. Playing at IND does not hurt HOU's offense — it may actually help it based on the data.</p>
     </div>
-  </div>
 
-</div>
+  </div><!-- /overview -->
 
-<!-- ===== VERDICT PANEL ===== -->
-<div id="verdict" class="panel">
+  <!-- ═════════════ HOU OFFENSE ═════════════ -->
+  <div id="hou-offense" class="panel">
+    <p style="max-width:760px;margin:0 auto 14px;font-size:0.82rem;color:var(--muted);">HOU Offense vs IND Defense — five positional battles</p>
 
-  <div class="card">
-    <div class="card-title">Battle Edge Tally</div>
-    <table class="tally-table">
-      <thead><tr><th>Battle</th><th>HOU Offense</th><th>IND Offense</th></tr></thead>
-      <tbody>
-        <tr><td>QB vs D-Line</td><td class="even-cell">Clash</td><td class="hou-win" style="color:var(--hou-acc);">◀◀ HOU D DANGER</td></tr>
-        <tr><td>Run vs LBs</td><td class="hou-win">◀◀ HOU clear</td><td class="ind-win">IND edge ▶</td></tr>
-        <tr><td>WRs vs CBs</td><td class="hou-win">◀ HOU edge</td><td class="hou-win" style="color:var(--hou-acc);">◀◀ HOU clear</td></tr>
-        <tr><td>TE vs Safety</td><td class="hou-win">◀◀ HOU clear</td><td class="hou-win" style="color:var(--hou-acc);">◀◀ HOU clear</td></tr>
-        <tr><td>Special Teams</td><td class="even-cell">Even</td><td class="even-cell">Even</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- Battle 1 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--hou-acc);">1</div>
+        <div class="battle-title">Stroud vs IND Defensive Line</div>
+        <div class="edge-pill even">⚡ CLASH</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label hou">C.J. Stroud — 337 attempts</div>
+          <div class="stat-line"><span class="sk">EPA / pass</span><span class="sv good">+0.13</span></div>
+          <div class="stat-line"><span class="sk">Completion %</span><span class="sv">59.9%</span></div>
+          <div class="stat-line"><span class="sk">CPOE</span><span class="sv good">+0.7%</span></div>
+          <div class="stat-line"><span class="sk">Avg air yards</span><span class="sv">9.7 yds</span></div>
+          <div class="stat-line"><span class="sk">Sack rate taken</span><span class="sv warn">5.0% (17 sacks)</span></div>
+          <div class="stat-line"><span class="sk">Hit rate taken</span><span class="sv warn">12.2% (41 hits)</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label ind">IND Pass Rush — 319 opp att</div>
+          <div class="stat-line"><span class="sk">Sacks generated</span><span class="sv warn">22 (6.9%)</span></div>
+          <div class="stat-line"><span class="sk">QB hits generated</span><span class="sv warn">49 (15.4%)</span></div>
+          <div class="stat-line"><span class="sk">Pressure rate</span><span class="sv bad">29.6% (worst NFL)</span></div>
+          <div class="stat-line"><span class="sk">Laiatu Latu</span><span class="sv warn">lead rusher</span></div>
+          <div class="stat-line"><span class="sk">J. Tuimoloau</span><span class="sv warn">7.8% win rate (85th)</span></div>
+          <div class="stat-line"><span class="sk">Arden Key</span><span class="sv bad">on IR</span></div>
+        </div>
+      </div>
+      <div class="rusher-box">
+        <div class="rusher-label">🏈 IND Pass Rushers</div>
+        Laiatu Latu leads IND with limited production. Jaylahn Tuimoloau (85th of 99 edge rushers, 7.8% win rate). Arden Key (the best of the group) is on Injured Reserve. DeForest Buckner (DT, 4 sacks season-to-date) is the most reliable IND rusher. IND runs just 3 rushers at the highest rate in the NFL — a scheme issue. <strong>IND generates 6.9% sacks, above Stroud's 5.0% taken, but their pressure unit is last in NFL.</strong>
+      </div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
+        <ul><li>IND confirmed Arden Key still on IR for Week 11?</li><li>Stroud injury/health status entering this game?</li></ul>
+      </div>
+    </div>
 
-  <div class="card">
-    <div class="card-title">Win Conditions</div>
-    <div class="verdict-grid">
-      <div class="verdict-col">
-        <div class="verdict-col-title hou">HOU Wins If…</div>
+    <!-- Battle 2 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--hou-acc);">2</div>
+        <div class="battle-title">HOU Run Game vs IND Linebackers</div>
+        <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label hou">HOU Rushing — 215 carries</div>
+          <div class="stat-line"><span class="sk">Yards per carry</span><span class="sv warn">3.67</span></div>
+          <div class="stat-line"><span class="sk">EPA / rush</span><span class="sv warn">−0.08</span></div>
+          <div class="stat-line"><span class="sk">1st down rate</span><span class="sv">21.4%</span></div>
+          <div class="stat-line"><span class="sk">TFL rate taken</span><span class="sv warn">7.0% (15)</span></div>
+          <div class="stat-line"><span class="sk">Best gap</span><span class="sv good">left tackle (5.0 ypc)</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label ind">IND Run Defense — 267 carries</div>
+          <div class="stat-line"><span class="sk">YPC allowed</span><span class="sv bad">4.94</span></div>
+          <div class="stat-line"><span class="sk">EPA allowed / rush</span><span class="sv bad">+0.04</span></div>
+          <div class="stat-line"><span class="sk">TFL generated</span><span class="sv bad">3.7% (10)</span></div>
+          <div style="font-size:0.78rem;background:#f0fff4;border-radius:6px;padding:8px;margin-top:8px;color:var(--good);">IND allows 4.94 ypc — far above HOU's 3.67 average. HOU should run the ball effectively even if their own average looks modest.</div>
+        </div>
+      </div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
+        <ul><li>HOU RB1 (David Montgomery) health status for Week 11?</li><li>IND LB depth — any injuries at linebacker?</li></ul>
+      </div>
+    </div>
+
+    <!-- Battle 3 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--hou-acc);">3</div>
+        <div class="battle-title">HOU Receivers vs IND Secondary</div>
+        <div class="edge-pill hou">◀ HOU EDGE</div>
+      </div>
+      <div class="side" style="padding:14px 16px 0;">
+        <div class="side-label hou">HOU Targets by Location (337 total)</div>
+        <table class="loc-table">
+          <tr><th>Zone</th><th>Tgt</th><th>Comp%</th><th>Air Yds</th><th>YAC</th><th>EPA/tgt</th></tr>
+          <tr><td>Left</td><td>89</td><td>58.4%</td><td>8.7</td><td>3.6</td><td style="color:var(--bad);">−0.06</td></tr>
+          <tr class="best"><td>⭐ Middle</td><td>83</td><td style="color:var(--good);">67.5%</td><td>10.0</td><td>5.8</td><td style="color:var(--good);">+0.37</td></tr>
+          <tr class="best"><td>⭐ Right</td><td>147</td><td style="color:var(--good);">63.9%</td><td>10.1</td><td>4.6</td><td style="color:var(--good);">+0.29</td></tr>
+        </table>
+        <div class="stat-line" style="margin-top:10px;"><span class="sk">Deep 15+ yds (HOU)</span><span class="sv">78 att · 38.5% comp</span></div>
+        <div class="stat-line"><span class="sk">Deep 15+ yds allowed (IND)</span><span class="sv bad">67 att · 46.3% comp</span></div>
+        <p style="font-size:0.78rem;color:var(--muted);padding:8px 0 12px;">IND added Sauce Gardner mid-season and Charvarius Ward in FA, but deep ball allowed % (46.3%) is well above HOU's 38.5% rate. Middle and right routes are HOU's best attack lanes tonight.</p>
+      </div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
+        <ul><li>Sauce Gardner shadow assignment — which HOU WR does he follow?</li><li>Nico Collins / Tank Dell injury status for Week 11?</li></ul>
+      </div>
+    </div>
+
+    <!-- Battle 4 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--hou-acc);">4</div>
+        <div class="battle-title">HOU TE / Slot vs IND Safety (middle proxy)</div>
+        <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label hou">HOU Middle — 83 targets</div>
+          <div class="stat-line"><span class="sk">Completion %</span><span class="sv good">67.5%</span></div>
+          <div class="stat-line"><span class="sk">EPA / target</span><span class="sv good">+0.37</span></div>
+          <div class="stat-line"><span class="sk">Avg YAC</span><span class="sv good">5.8 yds</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label ind">IND Middle Defense — 63 opp tgts</div>
+          <div class="stat-line"><span class="sk">Comp% allowed</span><span class="sv bad">58.7%</span></div>
+          <div class="stat-line"><span class="sk">EPA / target allowed</span><span class="sv bad">+0.11</span></div>
+          <div class="stat-line"><span class="sk">YAC allowed</span><span class="sv warn">5.5 yds</span></div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">HOU completes 67.5% in the middle vs IND allowing 58.7% — a huge gap. IND's safeties and linebackers are exploitable in the middle of the field.</p>
+        </div>
+      </div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
+        <ul><li>HOU TE1 targets/health status?</li><li>IND safety depth chart for Week 11?</li></ul>
+      </div>
+    </div>
+
+    <!-- Battle 5 — ST -->
+    <div class="battle" style="margin-bottom:0;">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--hou-acc);">5</div>
+        <div class="battle-title">Special Teams</div>
+        <div class="edge-pill even">── EVEN</div>
+      </div>
+      <div class="side" style="padding:14px 16px;">
+        <table class="loc-table">
+          <tr><th>Metric</th><th style="color:var(--hou-acc);">HOU</th><th style="color:var(--ind);">IND</th><th>Edge</th></tr>
+          <tr><td>FG Make%</td><td style="color:var(--good);font-weight:700;">95.0%</td><td>92.0%</td><td style="color:var(--hou-acc);">HOU ◀</td></tr>
+          <tr><td>FG Att / Made</td><td>20/19</td><td>25/23</td><td style="color:var(--muted);">Even</td></tr>
+          <tr><td>Avg FG dist</td><td>44.4 yds</td><td style="color:var(--good);font-weight:700;">45.8 yds</td><td style="color:var(--ind);">IND ▶</td></tr>
+          <tr><td>Punt inside-20%</td><td>28.2%</td><td style="color:var(--good);font-weight:700;">37.8%</td><td style="color:var(--ind);">IND ▶</td></tr>
+        </table>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">Both kickers are elite. IND has the better punter. Close game special teams could matter — both units are competent. Neither gives a decisive edge.</p>
+      </div>
+    </div>
+
+  </div><!-- /hou-offense -->
+
+  <!-- ═════════════ IND OFFENSE ═════════════ -->
+  <div id="ind-offense" class="panel">
+    <p style="max-width:760px;margin:0 auto 14px;font-size:0.82rem;color:var(--muted);">IND Offense vs HOU Defense — five positional battles</p>
+
+    <!-- Battle 1 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--ind);">1</div>
+        <div class="battle-title">Daniel Jones vs HOU Defensive Line</div>
+        <div class="edge-pill hou">◀◀ HOU D-LINE DANGER</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label ind">D. Jones — 351 attempts</div>
+          <div class="stat-line"><span class="sk">EPA / pass</span><span class="sv bad">−0.19</span></div>
+          <div class="stat-line"><span class="sk">Completion %</span><span class="sv bad">55.6%</span></div>
+          <div class="stat-line"><span class="sk">CPOE</span><span class="sv bad">−5.1%</span></div>
+          <div class="stat-line"><span class="sk">Avg air yards</span><span class="sv warn">7.4 yds</span></div>
+          <div class="stat-line"><span class="sk">Sack rate taken</span><span class="sv bad">7.4% (26 sacks)</span></div>
+          <div class="stat-line"><span class="sk">Hit rate taken</span><span class="sv bad">17.9% (63 hits)</span></div>
+          <div class="stat-line"><span class="sk">QB rating</span><span class="sv bad">72.8</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label hou">HOU Pass Rush — 350 opp att</div>
+          <div class="stat-line"><span class="sk">Sacks generated</span><span class="sv bad">33 (9.4%)</span></div>
+          <div class="stat-line"><span class="sk">QB hits generated</span><span class="sv bad">58 (16.6%)</span></div>
+          <div class="stat-line"><span class="sk">Will Anderson Jr.</span><span class="sv bad">elite edge · #1 pressure %</span></div>
+          <div class="stat-line"><span class="sk">Danielle Hunter</span><span class="sv bad">14.0 sacks in 2025</span></div>
+          <div class="stat-line"><span class="sk">D-line depth</span><span class="sv warn">Logan Hall (FA 2026)</span></div>
+          <div style="font-size:0.78rem;background:#fff0f0;border-radius:6px;padding:8px;margin-top:8px;color:var(--bad);">Anderson + Hunter = only pair of teammates in NFL with 10+ sacks in 2025. This D-line is dangerous for ANY QB. Jones at −0.19 EPA is a catastrophic matchup. Early turnovers likely.</div>
+        </div>
+      </div>
+      <div class="rusher-box">
+        <div class="rusher-label">🏈 HOU Pass Rush Leaders</div>
+        <strong>Will Anderson Jr.</strong> — led NFL in pressure rate (21.0%) in 2025, 12 sacks, 23 QB hits. Highest-paid edge rusher contract. <strong>Danielle Hunter</strong> — led HOU in sacks 2025 (combined 27 with Anderson), 59 hurries PFF leader, 14.0 sacks last season. <strong>Logan Hall</strong> — added in FA from TB, adds depth to "fearsome foursome." Combined season: 33 sacks, 58 QB hits, 9.4% sack rate.
+      </div>
+
+      <!-- Week-by-week sack log vs Jones -->
+      <div style="padding: 0 16px 14px;">
+        <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px;">IND QB Sack/Hit Log — Wk6 onward</div>
+        <table class="sack-log">
+          <thead><tr><th>Wk</th><th>Opp</th><th>Sacks taken</th><th>Hits taken</th><th>EPA/pass</th><th>W/L</th></tr></thead>
+          <tbody>
+            <tr><td>Wk 8</td><td>@ JAX</td><td class="bad">4</td><td>8</td><td class="bad">−0.42</td><td class="wl-l">L 7-42</td></tr>
+            <tr><td>Wk 9</td><td>vs DAL</td><td class="warn">3</td><td>7</td><td class="warn">−0.08</td><td class="wl-l">L 23-27</td></tr>
+            <tr><td>Wk 10</td><td>vs MIA</td><td class="warn">2</td><td>5</td><td class="warn">+0.04</td><td class="wl-w">W 24-22</td></tr>
+            <tr style="background:#fdf9f5;font-weight:700;"><td>Wk 11</td><td>vs HOU</td><td style="color:var(--bad);">9.4% rate</td><td>16.6% rate</td><td style="color:var(--bad);">projected</td><td>Tonight</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:6px;">Note: Wk6 shift likely marks Jones returning from ACL. Post-Wk6 sack log estimated from season averages — verify exact game logs.</p>
+      </div>
+
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
         <ul>
-          <li>Pass rush creates early chaos vs IND's struggling QB</li>
-          <li>HOU exploits IND's soft run defense (4.94 ypc allowed)</li>
-          <li>Middle and right routes stay efficient (+0.37/+0.29 EPA)</li>
-          <li>HOU's kicker holds up (95% — most reliable in this game)</li>
-          <li>IND can't sustain drives after the Week 6 drop-off</li>
+          <li>Jones injury status — still on ACL return protocol?</li>
+          <li>HOU blitz rate vs Jones — does DC Burke go heavy?</li>
         </ul>
       </div>
-      <div class="verdict-col">
-        <div class="verdict-col-title ind">IND Wins If…</div>
+    </div>
+
+    <!-- Battle 2 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--ind);">2</div>
+        <div class="battle-title">Jonathan Taylor vs HOU Linebackers</div>
+        <div class="edge-pill ind">IND EDGE ▶ — IND's Lifeline</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label ind">IND Rushing — 277 carries</div>
+          <div class="stat-line"><span class="sk">Yards per carry</span><span class="sv good">4.39</span></div>
+          <div class="stat-line"><span class="sk">EPA / rush</span><span class="sv good">+0.01</span></div>
+          <div class="stat-line"><span class="sk">1st down rate</span><span class="sv good">28.9%</span></div>
+          <div class="stat-line"><span class="sk">TFL rate taken</span><span class="sv warn">9.4% (26)</span></div>
+          <div class="stat-line"><span class="sk">Best gap</span><span class="sv good">left tackle (6.2 ypc)</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label hou">HOU Run Defense — 228 carries faced</div>
+          <div class="stat-line"><span class="sk">YPC allowed</span><span class="sv warn">4.07</span></div>
+          <div class="stat-line"><span class="sk">EPA allowed / rush</span><span class="sv good">−0.03</span></div>
+          <div class="stat-line"><span class="sk">TFL generated</span><span class="sv good">7.0% (16)</span></div>
+          <div style="background:#fffbf0;border-radius:6px;padding:8px;margin-top:8px;font-size:0.78rem;color:#7d5a00;">
+            IND 4.39 ypc > HOU 4.07 allowed — slight IND edge. With Jones struggling under pressure, <strong>Jonathan Taylor is IND's entire game plan.</strong> If HOU shuts down the run, it's over for IND.
+          </div>
+        </div>
+      </div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
         <ul>
-          <li>IND's run game (4.39 ypc, left tackle 6.2 ypc) controls the clock</li>
-          <li>IND's D-line rattles HOU's QB into turnovers</li>
-          <li>HOU's home-away split hurts (22.0 at home vs 29.0 away — wait, HOU is away here, good for HOU)</li>
-          <li>Week 6+ IND form is misleading — they recover scoring</li>
-          <li>IND's punter pins HOU deep consistently</li>
+          <li>Jonathan Taylor health/snap share entering Wk 11?</li>
+          <li>HOU box alignment tendency — do they stack vs run-heavy teams?</li>
         </ul>
       </div>
     </div>
-    <div class="bottom-line">
-      <strong>Bottom line:</strong> HOU wins 4 of 5 battles on the IND offense side. IND's QB is the most negative EPA passer in this matchup (−0.19/pass) facing HOU's 9.4% sack-rate pass rush. The only path IND has is a run-heavy game plan — their 4.39 ypc ground attack vs HOU's 4.07 allowed is their best weapon. HOU's projected 26.5 vs IND's 22.6 reflects the data: HOU should win, but IND at home with their run game and IND's own pass rush (6.9% sack rate on HOU's QB) makes this a game, not a blowout.
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="card-title">Projected Score</div>
-    <div class="stats-row" style="margin:0;">
-      <div class="stat-card">
-        <div class="stat-label">HOU</div>
-        <div class="stat-value warn">26.5</div>
-        <div class="stat-sub">projected</div>
+    <!-- Battle 3 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--ind);">3</div>
+        <div class="battle-title">IND Receivers vs HOU Cornerbacks</div>
+        <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">IND</div>
-        <div class="stat-value warn">22.6</div>
-        <div class="stat-sub">projected</div>
+      <div class="side" style="padding:14px 16px 0;">
+        <div class="side-label ind">IND Targets by Location (351 total)</div>
+        <table class="loc-table">
+          <tr><th>Zone</th><th>Tgt</th><th>Comp%</th><th>Air Yds</th><th>YAC</th><th>EPA/tgt</th></tr>
+          <tr><td>Left</td><td>136</td><td>64.0%</td><td>6.4</td><td>5.2</td><td style="color:var(--bad);">−0.12</td></tr>
+          <tr><td>Middle</td><td>65</td><td>58.5%</td><td>9.5</td><td>3.5</td><td style="color:var(--warn);">+0.05</td></tr>
+          <tr><td>Right</td><td>124</td><td>56.5%</td><td>7.3</td><td>5.2</td><td style="color:var(--bad);">−0.10</td></tr>
+        </table>
+        <div class="stat-line" style="margin-top:10px;"><span class="sk">Deep 15+ yds allowed (HOU)</span><span class="sv warn">79 att · 46.8% comp</span></div>
+        <p style="font-size:0.78rem;color:var(--muted);padding:8px 0 12px;">IND is negative EPA in every passing zone. HOU's Derek Stingley (2× All-Pro) is elite. IND's −0.19 EPA/pass QB makes every zone negative. HOU wins this battle convincingly.</p>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Advantage</div>
-        <div class="stat-value good" style="color:var(--hou-acc);">HOU +3.9</div>
-        <div class="stat-sub">season avg method</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">H2H 2026</div>
-        <div class="stat-value bad">IND won</div>
-        <div class="stat-sub">Wk 3 · IND 19–17</div>
+      <div class="verify-box">
+        <strong>⚑ Verify</strong>
+        <ul>
+          <li>Derek Stingley assignment vs IND WR1 this week?</li>
+          <li>IND WR depth chart — Josh Downs, Deion Burks health?</li>
+        </ul>
       </div>
     </div>
-  </div>
 
-</div>
+    <!-- Battle 4 -->
+    <div class="battle">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--ind);">4</div>
+        <div class="battle-title">Tyler Warren (TE) vs HOU Safety</div>
+        <div class="edge-pill hou">◀◀ HOU CLEAR EDGE</div>
+      </div>
+      <div class="battle-body">
+        <div class="side">
+          <div class="side-label ind">IND Middle — 65 targets</div>
+          <div class="stat-line"><span class="sk">Completion %</span><span class="sv warn">58.5%</span></div>
+          <div class="stat-line"><span class="sk">EPA / target</span><span class="sv warn">+0.05</span></div>
+          <div class="stat-line"><span class="sk">Avg YAC</span><span class="sv warn">3.5 yds</span></div>
+        </div>
+        <div class="side">
+          <div class="side-label hou">HOU Middle Defense — 74 opp tgts</div>
+          <div class="stat-line"><span class="sk">Comp% allowed</span><span class="sv warn">62.2%</span></div>
+          <div class="stat-line"><span class="sk">EPA / target allowed</span><span class="sv bad">+0.31</span></div>
+          <div class="stat-line"><span class="sk">YAC allowed</span><span class="sv bad">4.5 yds</span></div>
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:8px;">HOU allows +0.31 EPA in the middle — a potential opening. But IND only generates +0.05 in the middle, so Tyler Warren isn't dangerous enough to consistently exploit it. HOU's overall edge remains.</p>
+        </div>
+      </div>
+    </div>
 
-<p class="footnote">
-  Data: nflverse play_by_play_2026 · through Week 10 · 22,475 plays<br>
-  Generated: 2026-11-19 · PBP-based stats only · supplement with injury reports and depth charts<br>
-  HOU away scoring (29.0 pts/g) is higher than their home avg (22.0) — this road game may suit HOU
-</p>
+    <!-- Battle 5 -->
+    <div class="battle" style="margin-bottom:0;">
+      <div class="battle-header">
+        <div class="battle-num" style="background:var(--ind);">5</div>
+        <div class="battle-title">Special Teams</div>
+        <div class="edge-pill even">── EVEN</div>
+      </div>
+      <div class="side" style="padding:14px 16px;">
+        <table class="loc-table">
+          <tr><th>Metric</th><th style="color:var(--ind);">IND</th><th style="color:var(--hou-acc);">HOU</th><th>Edge</th></tr>
+          <tr><td>FG Make%</td><td>92.0%</td><td style="color:var(--good);font-weight:700;">95.0%</td><td style="color:var(--hou-acc);">HOU ◀</td></tr>
+          <tr><td>Avg FG dist</td><td style="color:var(--good);font-weight:700;">45.8 yds</td><td>44.4 yds</td><td style="color:var(--ind);">IND ▶</td></tr>
+          <tr><td>Punt inside-20%</td><td style="color:var(--good);font-weight:700;">37.8%</td><td>28.2%</td><td style="color:var(--ind);">IND ▶</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /ind-offense -->
+
+  <!-- ═════════════ VERDICT ═════════════ -->
+  <div id="verdict" class="panel">
+
+    <div class="card">
+      <div class="card-title">Battle Edge Tally — 10 Battles Total</div>
+      <table class="tally-table">
+        <thead><tr><th>Battle</th><th>HOU Offense</th><th>IND Offense</th></tr></thead>
+        <tbody>
+          <tr><td>QB vs D-Line</td><td class="tally-even">⚡ Clash (IND rush is worst in NFL)</td><td class="tally-hou">◀◀ HOU D-LINE DANGER</td></tr>
+          <tr><td>Run vs LBs</td><td class="tally-hou">◀◀ HOU (IND allows 4.94 ypc)</td><td class="tally-ind">IND EDGE ▶ (Taylor is lifeline)</td></tr>
+          <tr><td>WRs vs CBs</td><td class="tally-hou">◀ HOU (middle +0.37 EPA)</td><td class="tally-hou">◀◀ HOU (Jones neg all zones)</td></tr>
+          <tr><td>TE vs Safety</td><td class="tally-hou">◀◀ HOU (67.5% comp in middle)</td><td class="tally-hou">◀ HOU (Warren only +0.05)</td></tr>
+          <tr><td>Special Teams</td><td class="tally-even">Even</td><td class="tally-even">Even</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border);">HOU wins 7 of 10 battle sides. IND wins 1 (Taylor run game). 2 are even (special teams × 2). The mismatch at QB is decisive.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Win Conditions</div>
+      <div class="verdict-grid">
+        <div class="verdict-col">
+          <div class="verdict-col-title hou">HOU Wins If…</div>
+          <ul>
+            <li>Anderson + Hunter generate early sacks on Jones</li>
+            <li>HOU exploits IND's soft run defense (4.94 ypc allowed)</li>
+            <li>Middle and right routes stay efficient (+0.37/+0.29 EPA)</li>
+            <li>HOU suppresses Taylor by stacking the box</li>
+            <li>Jones' −0.19 EPA persists under HOU pressure</li>
+          </ul>
+        </div>
+        <div class="verdict-col">
+          <div class="verdict-col-title ind">IND Wins If…</div>
+          <ul>
+            <li>Jonathan Taylor runs for 100+ and controls clock</li>
+            <li>IND's D-line (DeForest Buckner) rattles Stroud early</li>
+            <li>Jones avoids sacks and operates on quick 3-step drops</li>
+            <li>IND's home crowd disrupts HOU's communication</li>
+            <li>HOU's offensive anomaly (Wk4 shift) proves unsustainable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-line">
+        <strong>Bottom line:</strong> HOU wins 7 of 10 battle sides and the data points one direction. IND's Daniel Jones is the most negatively-rated QB in this matchup (−0.19 EPA, 72.8 rating) facing the NFL's most feared edge duo in Will Anderson Jr. + Danielle Hunter. IND's only viable game plan is a run-heavy approach (Jonathan Taylor, 4.39 ypc) to keep Jones off the field and avoid pressure situations. HOU scores more on the road (29.0 pts/g away vs 22.0 home) — another advantage. HOU projected 26.5–22.6. Scenario to watch: if IND controls time of possession with Taylor early, this game stays competitive. If HOU forces Jones into third-and-long situations, Anderson/Hunter take over and it becomes a rout.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Projected Score</div>
+      <div class="stats-row" style="margin:0;">
+        <div class="stat-card">
+          <div class="stat-label">HOU</div>
+          <div class="stat-value warn">26.5</div>
+          <div class="stat-sub">projected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">IND</div>
+          <div class="stat-value warn">22.6</div>
+          <div class="stat-sub">projected</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Model Edge</div>
+          <div class="stat-value good" style="color:var(--hou-acc);">HOU +3.9</div>
+          <div class="stat-sub">season avg method</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">H2H 2026</div>
+          <div class="stat-value bad">IND won</div>
+          <div class="stat-sub">Wk 3 · IND 19–17</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /verdict -->
+
+  <p class="footnote">
+    Data: nflverse play_by_play_2026 · through Week 10 · 22,475 plays<br>
+    Predictions generated: 2026-11-19 (pre-kickoff) · This report will not be edited after kickoff<br>
+    Pass rush context: Sharp Football Analysis 2026 preview, ToroTimes, RotoWire, Roundtable.io<br>
+    Per CLAUDE.md policy: predictions are locked before kickoff · if wrong, record as wrong
+  </p>
+
+</div><!-- /content -->
 
 <script>
 function showPanel(id, btn) {
