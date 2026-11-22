@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DatWins — NFL Game Previews</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f9f7f4;
+    color: #1a1a1a;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  .header {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    color: #fff;
+    padding: 40px 20px 32px;
+    text-align: center;
+  }
+  .header h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.02em; }
+  .header .sub { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .content { max-width: 760px; margin: 0 auto; padding: 32px 16px; }
+  .section-label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: #9a8f85; margin-bottom: 16px; padding-bottom: 8px;
+    border-bottom: 1px solid #e0d9d0;
+  }
+  .game-card {
+    background: #fff;
+    border: 1px solid #e0d9d0;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    transition: box-shadow 0.15s, border-color 0.15s;
+  }
+  .game-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); border-color: #c17b4e; }
+  .teams { flex: 1; }
+  .teams .matchup { font-size: 1.1rem; font-weight: 800; }
+  .teams .meta { font-size: 0.78rem; color: #9a8f85; margin-top: 3px; }
+  .arrow { color: #c17b4e; font-size: 1.2rem; }
+  .badge {
+    font-size: 0.68rem; font-weight: 700; padding: 3px 10px;
+    border-radius: 12px; white-space: nowrap;
+    background: rgba(193,123,78,0.12); color: #c17b4e;
+  }
+  .footnote { text-align: center; font-size: 0.74rem; color: #9a8f85; margin-top: 32px; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🏈 DatWins NFL Previews</h1>
+  <div class="sub">PBP-driven game previews · nflverse data · 2026 season</div>
+</div>
+
+<div class="content">
+  <div class="section-label">2026 Season — Game Reports</div>
+
+  <a href="hou-ind-week11-2026.html" class="game-card">
+    <div class="teams">
+      <div class="matchup">HOU Texans @ IND Colts</div>
+      <div class="meta">Week 11 · Thu Nov 19, 2026 · Lucas Oil Stadium</div>
+    </div>
+    <span class="badge">Week 11</span>
+    <span class="arrow">→</span>
+  </a>
+
+  <div class="footnote">
+    Data: nflverse play_by_play_2026 · EPA-based positional matchup analysis<br>
+    Reports generated pre-kickoff and locked — predictions are never edited after the game starts
+  </div>
+</div>
+
+</body>
+</html>
